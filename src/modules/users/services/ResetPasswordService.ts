@@ -40,6 +40,8 @@ class ResetPasswordService {
     const hashedPassword = await hash(password, 8)
 
     user.password = hashedPassword
+
+    await usersRepository.save(user)
   }
 }
 
