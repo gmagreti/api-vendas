@@ -30,4 +30,4 @@ class ProductRepository extends Repository<Product> {
   }
 }
 
-export default ProductRepository
+export { ProductRepository }

@@ -14,10 +14,11 @@ import uploadConfig from 'config/upload'
 // Conection Typeorm
 import '../typeorm'
 import { AppError } from 'shared/errors/AppError'
+import rateLimiter from 'shared/middlewares/rateLimiter'
 
 app.use(cors())
 app.use(express.json())
-
+app.use(rateLimiter)
 app.use(pagination)
 
 app.use('/files', express.static(uploadConfig.directory))
