@@ -1,4 +1,5 @@
 import 'reflect-metadata'
+import 'dotenv/config'
 import { pagination } from 'typeorm-pagination'
 import express, { NextFunction, Request, Response } from 'express'
 import 'express-async-errors'
