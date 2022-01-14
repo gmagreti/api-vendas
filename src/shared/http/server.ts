@@ -18,7 +18,7 @@ import rateLimiter from 'shared/middlewares/rateLimiter'
 
 app.use(cors())
 app.use(express.json())
-app.use(rateLimiter)
+// app.use(rateLimiter)
 app.use(pagination)
 
 app.use('/files', express.static(uploadConfig.directory))
@@ -33,6 +33,8 @@ app.use((error: Error, request: Request, response: Response, next: NextFunction)
       message: error.message,
     })
   }
+
+  console.log(error)
 
   return response.status(500).json({
     status: 'error',

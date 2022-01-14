@@ -18,4 +18,4 @@ class Customer {
   updated_at: Date
 }
 
-export default Customer
+export { Customer }

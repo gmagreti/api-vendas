@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { classToClass } from 'class-transformer'
 import { Request, Response } from 'express'
-import { UpdateUserAvatarService } from '../services/UpdateUserAvatarService'
+import UpdateUserAvatarService from '../services/UpdateUserAvatarService'
 
 export default class UserAvatarController {
   public async update(request: Request, response: Response): Promise<Response> {
     const updateAvatar = new UpdateUserAvatarService()
 
-    const user = updateAvatar.execute({
+    const user = await updateAvatar.execute({
       user_id: request.user.id,
-      avatarFileName: request.file!.filename,
+      avatarFilename: request.file.filename,
     })
 
     return response.json(classToClass(user))
